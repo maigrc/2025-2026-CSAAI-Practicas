@@ -1,4 +1,4 @@
-Practcando con GitHub
+Practicando con GitHub
 
 ******************
 Mi segundo cambio
