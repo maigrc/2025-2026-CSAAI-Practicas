@@ -1,65 +1,131 @@
-/* https://www.w3schools.com/howto/howto_css_two_columns.asp */
-/* https://developer.mozilla.org/es/docs/Web/CSS/box-sizing */
-/* Así definimos el comportamiento de caja para todos los elementos */
+/* =========================
+   ESTILO MINNIE MOUSE 🎀
+========================= */
+
+/* Configuración general */
 * {
     box-sizing: border-box;
-  }
-  
-/* Crear columnas de ancho diferente que se colocan una a continuación de la otra */
+}
+
+body {
+    margin: 0;
+    font-family: 'Verdana', sans-serif;
+    background-color: #ffe6f0; /* rosa claro */
+    color: #4a004a; /* morado oscuro */
+}
+
+/* Columnas */
 .columna {
-float: left;
-padding: 10px;
-min-height: 500px;
+    float: left;
+    padding: 20px;
+    min-height: 500px;
 }
 
 .izquierda {
-width: 25%;
+    width: 25%;
+    background-color: #ffb6d9; /* rosa medio */
 }
 
 .derecha {
-width: 75%;
+    width: 75%;
+    background-color: #ffffff; /* blanco elegante */
 }
 
-/* Clear floats despues de las columnas para eliminar la superposición */
+/* Limpieza de floats */
 .filla:after {
-content: "";
-display: table;
-clear: both;
+    content: "";
+    display: table;
+    clear: both;
 }
 
-#c1 {
-    background-color:#aaa;
+/* Encabezados */
+h1 {
+    color: #e60073; /* rosa fuerte */
+    font-size: 36px;
+    text-shadow: 2px 2px #ffcce6;
 }
 
-#c2 {
-    background-color:#bbb;
+h2 {
+    color: #cc0066;
+    border-bottom: 3px dotted #ff66a3; /* efecto lunares */
+    padding-bottom: 5px;
 }
 
-/* estilos para imágenes https://www.w3schools.com/css/css3_images.asp */
-/* posicionamiento de imágenes https://www.w3schools.com/css/css_positioning.asp */
+/* Listas */
+ul, ol {
+    padding-left: 20px;
+}
 
+li {
+    margin-bottom: 8px;
+}
+
+/* Enlaces */
+a {
+    color: #e60073;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #ff3385;
+    text-decoration: underline;
+}
+
+/* Imágenes */
 img {
     width: 100%;
     height: auto;
+    border-radius: 15px;
+    border: 4px solid #ff66a3; /* marco rosa */
 }
 
-.iresponsive {
-    padding: 0 6px;
-    float: left;
-    width: 50%;
-  }
+/* Marco decorativo */
+.marco1 {
+    padding: 10px;
+    background-color: white;
+    border-radius: 20px;
+    border: 5px dotted #ff3399; /* estilo lunares */
+    margin-bottom: 20px;
+}
 
-/* Responsive layout - cuando el ancho de pantalla es menor a 600px, muestra las columnas apiladas. */
-/* Así conseguimos que el contenido se vea bien en dispositvos móviles */
+.marco2 {
+    padding: 15px;
+    background-color: #fff0f5;
+    border-radius: 20px;
+    border: 4px solid #ff66a3;
+}
 
+/* Insignias redondas */
+.circular--square {
+    border-radius: 50%;
+    border: 4px solid #e60073;
+}
+
+/* Tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background-color: #ff66a3;
+    color: white;
+    padding: 10px;
+}
+
+td {
+    padding: 10px;
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background-color: #ffe6f2;
+}
+
+/* Responsive */
 @media screen and (max-width: 600px) {
     .columna {
-      width: 100%;
-    }
-
-    .iresponsive {
         width: 100%;
     }
 }
-
-/* Más sobre diseño web responsive https://www.w3schools.com/css/css_rwd_intro.asp */
