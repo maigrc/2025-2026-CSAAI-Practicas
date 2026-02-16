@@ -1,131 +1,53 @@
-/* =========================
-   ESTILO MINNIE MOUSE 🎀
-========================= */
-
-/* Configuración general */
-* {
-    box-sizing: border-box;
-}
-
 body {
     margin: 0;
-    font-family: 'Verdana', sans-serif;
-    background-color: #ffe6f0; /* rosa claro */
-    color: #4a004a; /* morado oscuro */
+    font-family: Arial, sans-serif;
 }
 
-/* Columnas */
-.columna {
-    float: left;
+header {
+    background-color: #ff69b4;
+    color: white;
+    text-align: center;
     padding: 20px;
-    min-height: 500px;
 }
 
-.izquierda {
-    width: 25%;
-    background-color: #ffb6d9; /* rosa medio */
+.cuerpo {
+    display: flex;
 }
 
-.derecha {
-    width: 75%;
-    background-color: #ffffff; /* blanco elegante */
+aside {
+    width: 30%;
+    background-color: #ffe4ec;
+    padding: 20px;
 }
 
-/* Limpieza de floats */
-.filla:after {
-    content: "";
-    display: table;
-    clear: both;
+main {
+    width: 70%;
+    padding: 20px;
 }
 
-/* Encabezados */
-h1 {
-    color: #e60073; /* rosa fuerte */
-    font-size: 36px;
-    text-shadow: 2px 2px #ffcce6;
-}
-
-h2 {
-    color: #cc0066;
-    border-bottom: 3px dotted #ff66a3; /* efecto lunares */
+.apartados h2 {
+    border-bottom: 2px solid #ff69b4;
     padding-bottom: 5px;
 }
 
-/* Listas */
-ul, ol {
-    padding-left: 20px;
-}
-
-li {
-    margin-bottom: 8px;
-}
-
-/* Enlaces */
-a {
-    color: #e60073;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-a:hover {
-    color: #ff3385;
-    text-decoration: underline;
-}
-
-/* Imágenes */
-img {
-    width: 100%;
-    height: auto;
-    border-radius: 15px;
-    border: 4px solid #ff66a3; /* marco rosa */
-}
-
-/* Marco decorativo */
-.marco1 {
-    padding: 10px;
-    background-color: white;
-    border-radius: 20px;
-    border: 5px dotted #ff3399; /* estilo lunares */
+.imagen {
+    text-align: center;
     margin-bottom: 20px;
 }
 
-.marco2 {
-    padding: 15px;
-    background-color: #fff0f5;
-    border-radius: 20px;
-    border: 4px solid #ff66a3;
-}
-
-/* Insignias redondas */
-.circular--square {
-    border-radius: 50%;
-    border: 4px solid #e60073;
-}
-
-/* Tabla */
 table {
     width: 100%;
+    text-align: center;
     border-collapse: collapse;
 }
 
-th {
-    background-color: #ff66a3;
+table, th, td {
+    border: 1px solid #ff69b4;
+}
+
+footer {
+    background-color: #ff69b4;
     color: white;
-    padding: 10px;
-}
-
-td {
-    padding: 10px;
     text-align: center;
-}
-
-tr:nth-child(even) {
-    background-color: #ffe6f2;
-}
-
-/* Responsive */
-@media screen and (max-width: 600px) {
-    .columna {
-        width: 100%;
-    }
+    padding: 10px;
 }

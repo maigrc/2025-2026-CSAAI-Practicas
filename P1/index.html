@@ -1,61 +1,82 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Minnie Mouse</title>
-    <script src="https://kit.fontawesome.com/d54659e8ac.js" crossorigin="anonymous"></script>
+    <title>Currículum Minnie Mouse</title>
     <link rel="stylesheet" href="hojaestiloCV.css">
+    <script src="https://kit.fontawesome.com/d54659e8ac.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
 
-<div class="contenedor">
+<!-- ENCABEZADO -->
+<header>
+    <h1>MINNIE MOUSE</h1>
+</header>
 
-    <leftcolumn>
-        <div class="marco1">
-            <img src="minnie.jpg" alt="Minnie">
+<!-- CONTENEDOR GENERAL -->
+<div class="cuerpo">
+
+    <!-- COLUMNA LATERAL -->
+    <aside>
+
+        <div class="imagen">
+            <img src="minnie.jpg" alt="Minnie" width="250">
         </div>
 
-        <h2>DATOS PERSONALES</h2>
-        <ul>
-            <li><i class="fas fa-phone-alt"></i> +01 234 567 890</li>
-            <li><i class="fas fa-birthday-cake"></i> 18 de noviembre de 1928</li>
-            <li><i class="fas fa-house-user"></i> Disney World</li>
-        </ul>
+        <div class="apartados">
+            <h2>Sobre mí</h2>
+        </div>
+        <div class="parrafos">
+            <p>
+                Personaje animado creado por Walt Disney.
+                Debuté en 1928 y soy conocida por mi elegancia,
+                dulzura y mi icónico lazo.
+            </p>
+        </div>
 
-        <h2>EXPERIENCIA</h2>
-        <ol>
-            <li>Cantante y bailarina en espectáculos Disney</li>
-            <li>Diseñadora de lazos icónicos</li>
-            <li>Embajadora del estilo Minnie</li>
-        </ol>
+        <div class="apartados">
+            <h2>Contacto</h2>
+        </div>
+        <div class="parrafos">
+            <p><i class="fas fa-phone-alt"></i> +01 234 567 890</p>
+            <p><i class="fas fa-birthday-cake"></i> 18 de noviembre de 1928</p>
+            <p><i class="fas fa-house-user"></i> Disney World</p>
+        </div>
 
-        <h2>INSIGNIA</h2>
-        <div style="text-align:center;">
+        <div class="apartados">
+            <h2>Insignia</h2>
+        </div>
+        <div class="imagen">
             <img src="lazo.jpg" width="120">
         </div>
 
-    </leftcolumn>
+    </aside>
 
-    <rightcolumn>
+    <!-- COLUMNA PRINCIPAL -->
+    <main>
 
-        <h1>MINNIE MOUSE</h1>
+        <div class="apartados">
+            <h2>Experiencia</h2>
+        </div>
+        <div class="parrafos">
+            <ul>
+                <li>Cantante y bailarina en espectáculos Disney</li>
+                <li>Diseñadora de lazos icónicos</li>
+                <li>Embajadora del estilo Minnie</li>
+            </ul>
+        </div>
 
-        <h2>QUIÉN SOY</h2>
-        <p>
-            Soy un personaje animado creado por Walt Disney.
-            Debuté en 1928 y soy conocida por mi elegancia,
-            dulzura y mi icónico lazo.
-        </p>
+        <div class="apartados">
+            <h2>Amigos</h2>
+        </div>
 
-        <h2>AMIGOS</h2>
-
-        <table border="1">
+        <table>
             <tr>
-                <th>Mickey</th>
-                <th>Daisy</th>
-                <th>Pluto</th>
-                <th>Goofy</th>
+                <th>:contentReference[oaicite:1]{index=1}</th>
+                <th>:contentReference[oaicite:2]{index=2}</th>
+                <th>:contentReference[oaicite:3]{index=3}</th>
+                <th>:contentReference[oaicite:4]{index=4}</th>
             </tr>
             <tr>
                 <td><img src="mickey.jpg" width="100"></td>
@@ -65,9 +86,14 @@
             </tr>
         </table>
 
-    </rightcolumn>
+    </main>
 
 </div>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 Minnie Mouse</p>
+</footer>
 
 </body>
 </html>
