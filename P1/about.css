@@ -1,0 +1,276 @@
+/* ================================= */
+/*        ABOUT - MINNIE CHIC        */
+/* ================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ------------------------------- */
+/* FONDO ELEGANTE CON LUNARES     */
+/* ------------------------------- */
+
+body {
+    background-color: #7a0000; /* rojo profundo */
+    background-image: radial-gradient(rgba(255,255,255,0.12) 10%, transparent 11%);
+    background-size: 35px 35px;
+    background-attachment: fixed;
+    font-family: 'Georgia', serif;
+}
+
+/* ------------------------------- */
+/* NAVBAR MINNIE                  */
+/* ------------------------------- */
+
+.navbar {
+    padding: 15px;
+    text-align: center;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    position: relative;
+    transition: 0.3s ease;
+}
+
+.navbar a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background: white;
+    left: 0;
+    bottom: -5px;
+    transition: 0.4s;
+}
+
+.navbar a:hover::after,
+.active::after {
+    width: 100%;
+}
+
+/* ------------------------------- */
+/* CONTENEDOR PRINCIPAL           */
+/* ------------------------------- */
+
+.about-container,
+.contenedor-about {
+    max-width: 950px;
+    margin: auto;
+    padding: 30px;
+}
+
+/* ------------------------------- */
+/* FOTO PRINCIPAL ELEGANTE        */
+/* ------------------------------- */
+
+.foto-principal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(145deg, #a00000, #5a0000);
+    padding: 30px;
+    max-width: 550px;
+    margin: 0 auto 50px auto;
+
+    border-radius: 30px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+}
+
+.foto-principal img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 25px;
+    transition: 0.5s ease;
+}
+
+.foto-principal img:hover {
+    transform: scale(1.06);
+    filter: brightness(1.05);
+}
+
+/* ------------------------------- */
+/* TÍTULO PRINCIPAL               */
+/* ------------------------------- */
+
+.titulo-sobre-mi {
+    text-align: center;
+    color: white;
+    font-size: 2.8rem;
+    letter-spacing: 2px;
+    margin: 40px 0;
+    text-shadow: 2px 4px 10px rgba(0,0,0,0.6);
+}
+
+/* ------------------------------- */
+/* TARJETAS / CUADROS GLAM        */
+/* ------------------------------- */
+
+.cuadro,
+.about-card {
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 30px;
+    background: linear-gradient(145deg, #a80000, #6b0000);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+    transition: 0.4s ease;
+    animation: aparecer 0.8s ease;
+}
+
+.cuadro:hover,
+.about-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 45px rgba(0,0,0,0.7);
+}
+
+.cuadro h2,
+.about-card h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: white;
+    letter-spacing: 1px;
+}
+
+.cuadro p,
+.about-card p {
+    color: #f2f2f2;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+/* ------------------------------- */
+/* GIF HISTORIA                   */
+/* ------------------------------- */
+
+.gif-historia {
+    display: block;
+    margin: 0 auto 25px auto;
+    width: 80%;
+    max-width: 420px;
+    border-radius: 25px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+}
+
+/* ------------------------------- */
+/* COLUMNAS FLEX                  */
+/* ------------------------------- */
+
+.fila-columnas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.fila-columnas .cuadro {
+    flex: 1 1 230px;
+    max-width: 270px;
+}
+
+/* ------------------------------- */
+/* SECCIÓN VIDEO ELEGANTE         */
+/* ------------------------------- */
+
+.seccion-video {
+    background: linear-gradient(145deg, #a00000, #5a0000);
+    max-width: 600px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.seccion-video h2 {
+    color: white;
+    margin-top: 0;
+    font-size: 1.9rem;
+}
+
+.video-flexible {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+}
+
+.video-flexible iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* ------------------------------- */
+/* BOTÓN MINNIE PREMIUM           */
+/* ------------------------------- */
+
+.boton-barbie {
+    display: block;
+    width: 220px;
+    max-width: 90%;
+    margin: 40px auto;
+    padding: 16px;
+    border-radius: 30px;
+    background: linear-gradient(145deg, #c40000, #7a0000);
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+    transition: 0.4s ease;
+}
+
+.boton-barbie:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.8);
+}
+
+/* ------------------------------- */
+/* ANIMACIÓN SUAVE                */
+/* ------------------------------- */
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ------------------------------- */
+/* RESPONSIVE                     */
+/* ------------------------------- */
+
+@media screen and (max-width: 768px) {
+
+    .fila-columnas {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar ul {
+        gap: 20px;
+    }
+
+    .navbar a {
+        font-size: 0.95rem;
+    }
+
+}

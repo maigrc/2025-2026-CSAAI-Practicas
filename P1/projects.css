@@ -1,0 +1,186 @@
+/* https://www.w3schools.com/howto/howto_css_two_columns.asp */
+/* https://developer.mozilla.org/es/docs/Web/CSS/box-sizing */
+/* Así definimos el comportamiento de caja para todos los elementos */
+* {
+    box-sizing: border-box;
+}
+  
+/* Contenedor principal del menú */
+.navbar {
+    background-color: transparent;
+    padding: 10px;
+    margin-bottom: 2px;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar li {
+    margin: 0 15px;
+}
+
+.navbar a {
+    color: rgb(220, 0, 0); /* Rojo Minnie */
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.active {
+    border-bottom: 4px solid rgb(220, 0, 0);
+}
+
+/* Columnas */
+.columna {
+    float: left;
+    padding: 20px; 
+    min-height: 500px;
+    border-radius: 20px; 
+    margin-bottom: 20px;
+}
+
+/* Fondo temático Minnie */
+body {
+    background-image: url('fondo-minnie.webp');
+    background-size: cover;       
+    background-attachment: fixed; 
+    background-repeat: no-repeat; 
+}
+
+h2 {
+    text-align: center;
+    color: rgb(220, 0, 0);
+}
+
+/* Contenedor flexible para tarjetas */
+.contenedor-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    padding: 20px;
+}
+
+/* Tarjetas */
+.card {
+    background-color: rgba(255, 255, 255, 0.25);
+    border: 2px solid rgb(220, 0, 0);
+    border-radius: 15px;
+    padding: 25px;
+    width: 320px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.card h3 {
+    color: rgb(220, 0, 0);
+    margin-top: 0;
+    font-family: 'Georgia', serif;
+    text-align: center;
+}
+
+.card p {
+    color: rgb(220, 0, 0);
+    line-height: 1.5;
+    font-family: 'Georgia', serif;
+}
+
+/* Botones */
+.boton-card {
+    background-color: rgb(220, 0, 0); /* Rojo Minnie */
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    padding: 12px 20px;
+    border-radius: 25px; /* Más redondeado estilo lazo */
+    font-weight: bold;
+    font-family: 'Georgia', serif;
+    margin-top: 20px;
+    display: block;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(220, 0, 0, 0.3);
+}
+
+.boton-card:hover {
+    background-color: rgb(180, 0, 0);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(220, 0, 0, 0.5);
+}
+
+/* Botón volver */
+.enlace-vuelta {
+    width: 100%;
+    text-align: center;
+    margin: 50px 0;
+    clear: both;
+    display: block;
+    list-style: none;
+}
+
+.enlace-vuelta a {
+    background-color: rgba(255, 255, 255, 0.25);
+    border: 2px solid rgb(220, 0, 0);
+    border-radius: 20px;
+    padding: 12px 30px;
+    color: rgb(220, 0, 0);
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    -webkit-appearance: none; 
+}
+
+.enlace-vuelta a:hover {
+    transform: scale(1.05);
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Imágenes */
+.gif-historia {
+    display: block;
+    margin: 0 auto 20px auto;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 20px;
+}
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+    .card, .columna, .iresponsive {
+        width: 100%;
+    }
+
+    .navbar a {
+        font-size: 0.85rem !important; 
+        padding-bottom: 2px;
+    }
+
+    .navbar li {
+        margin: 0 8px !important; 
+    }
+
+    .active {
+        border-bottom: 2px solid rgb(220, 0, 0);
+    }
+
+    /* Ajuste de tarjetas y columnas */ 
+    .card, .columna, .iresponsive { 
+        width: 100%; } 
+    } 
+    
+    /* Más sobre diseño web responsive https://www.w3schools.com/css/css_rwd_intro.asp */
