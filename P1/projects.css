@@ -1,11 +1,7 @@
-/* https://www.w3schools.com/howto/howto_css_two_columns.asp */
-/* https://developer.mozilla.org/es/docs/Web/CSS/box-sizing */
-/* Así definimos el comportamiento de caja para todos los elementos */
 * {
     box-sizing: border-box;
 }
-  
-/* Contenedor principal del menú */
+
 .navbar {
     background-color: transparent;
     padding: 10px;
@@ -25,7 +21,7 @@
 }
 
 .navbar a {
-    color: rgb(220, 0, 0); /* Rojo Minnie */
+    color: rgb(220, 0, 0);
     text-decoration: none;
     font-size: 1.2rem;
     font-family: 'Georgia', serif;
@@ -38,7 +34,6 @@
     border-bottom: 4px solid rgb(220, 0, 0);
 }
 
-/* Columnas */
 .columna {
     float: left;
     padding: 20px; 
@@ -47,7 +42,6 @@
     margin-bottom: 20px;
 }
 
-/* Fondo temático Minnie */
 body {
     background-image: url('fondo-minnie.webp');
     background-size: cover;       
@@ -60,7 +54,6 @@ h2 {
     color: rgb(220, 0, 0);
 }
 
-/* Contenedor flexible para tarjetas */
 .contenedor-cards {
     display: flex;
     flex-wrap: wrap;
@@ -69,7 +62,6 @@ h2 {
     padding: 20px;
 }
 
-/* Tarjetas */
 .card {
     background-color: rgba(255, 255, 255, 0.25);
     border: 2px solid rgb(220, 0, 0);
@@ -97,14 +89,13 @@ h2 {
     font-family: 'Georgia', serif;
 }
 
-/* Botones */
 .boton-card {
-    background-color: rgb(220, 0, 0); /* Rojo Minnie */
+    background-color: rgb(220, 0, 0); 
     color: white;
     text-decoration: none;
     text-align: center;
     padding: 12px 20px;
-    border-radius: 25px; /* Más redondeado estilo lazo */
+    border-radius: 25px; 
     font-weight: bold;
     font-family: 'Georgia', serif;
     margin-top: 20px;
@@ -119,7 +110,6 @@ h2 {
     box-shadow: 0 6px 15px rgba(220, 0, 0, 0.5);
 }
 
-/* Botón volver */
 .enlace-vuelta {
     width: 100%;
     text-align: center;
@@ -150,7 +140,6 @@ h2 {
     background-color: rgba(255, 255, 255, 0.4);
 }
 
-/* Imágenes */
 .gif-historia {
     display: block;
     margin: 0 auto 20px auto;
@@ -158,8 +147,6 @@ h2 {
     max-width: 400px;
     border-radius: 20px;
 }
-
-/* Responsive */
 @media screen and (max-width: 600px) {
     .card, .columna, .iresponsive {
         width: 100%;
@@ -177,10 +164,8 @@ h2 {
     .active {
         border-bottom: 2px solid rgb(220, 0, 0);
     }
-
-    /* Ajuste de tarjetas y columnas */ 
+ 
     .card, .columna, .iresponsive { 
         width: 100%; } 
     } 
     
-    /* Más sobre diseño web responsive https://www.w3schools.com/css/css_rwd_intro.asp */

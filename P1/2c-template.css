@@ -1,16 +1,8 @@
-/* ============================= */
-/*        ESTILO MINNIE CHIC     */
-/* ============================= */
-
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-
-/* ----------------------------- */
-/* FONDO GENERAL ELEGANTE        */
-/* ----------------------------- */
 
 body {
     font-family: 'Georgia', serif;
@@ -19,10 +11,6 @@ body {
     background-size: 35px 35px; /* lunares finos */
     background-attachment: fixed;
 }
-
-/* ----------------------------- */
-/* NAVBAR MINNIE CHIC            */
-/* ----------------------------- */
 
 .navbar {
     padding: 15px;
@@ -45,7 +33,6 @@ body {
     transition: 0.3s ease;
 }
 
-/* Línea elegante animada */
 .navbar a::after {
     content: "";
     position: absolute;
@@ -65,10 +52,6 @@ body {
     width: 100%;
 }
 
-/* ----------------------------- */
-/* COLUMNAS                      */
-/* ----------------------------- */
-
 .columna {
     float: left;
     padding: 30px;
@@ -87,14 +70,12 @@ body {
     width: 73%;
 }
 
-/* Clear floats */
 .fila:after {
     content: "";
     display: table;
     clear: both;
 }
 
-/* Columna izquierda - negro elegante */
 #c1 {
     background: rgba(0, 0, 0, 0.75);
     border: 2px solid rgba(255,255,255,0.3);
@@ -102,22 +83,18 @@ body {
     color: white;
 }
 
-/* Columna derecha - blanco sofisticado */
 #c2 {
-    background: rgba(255, 255, 255, 0.92);
+    background: rgba(250, 206, 206, 0.92);
     border: 2px solid rgba(0,0,0,0.1);
     box-shadow: 0 0 30px rgba(0,0,0,0.2);
 }
-
-/* ----------------------------- */
-/* TÍTULOS                       */
-/* ----------------------------- */
 
 h2 {
     text-align: center;
     margin-bottom: 20px;
     font-size: 1.8rem;
     letter-spacing: 2px;
+    color: rgba(250, 206, 206, 0.92);
 }
 
 #c1 h2 {
@@ -127,10 +104,6 @@ h2 {
 #c2 h2 {
     color: #8b0000;
 }
-
-/* ----------------------------- */
-/* TEXTOS                        */
-/* ----------------------------- */
 
 p, li {
     font-size: 1.1rem;
@@ -144,10 +117,6 @@ p, li {
 #c2 p, #c2 li {
     color: #333333;
 }
-
-/* ----------------------------- */
-/* TARJETAS MINI                 */
-/* ----------------------------- */
 
 .tarjeta-mini {
     background: linear-gradient(145deg, #a00000, #6e0000);
@@ -168,10 +137,6 @@ p, li {
     color: white !important;
 }
 
-/* ----------------------------- */
-/* IMÁGENES                      */
-/* ----------------------------- */
-
 .iresponsive,
 .img-card {
     border-radius: 25px;
@@ -182,7 +147,9 @@ p, li {
 
 .iresponsive img,
 .img-card img {
-    width: 100%;
+    width: 70%;        
+    display: block;
+    margin: 0 auto;
     border-radius: 25px;
     transition: transform 0.5s ease, filter 0.5s ease;
 }
@@ -193,11 +160,26 @@ p, li {
     filter: brightness(1.1);
 }
 
-/* ----------------------------- */
-/* EFECTO LAZO DECORATIVO       */
-/* ----------------------------- */
+.imagen-centro {
+    text-align: center;   
+    margin: 20px 0;       
+}
 
-/* Puedes usar esto en un div con clase .lazo */
+.sin-recuadro {
+    border: none;         
+    border-radius: 25px;  
+    max-width: 100%;      
+    height: auto;         
+    display: inline-block; 
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3); 
+    transition: transform 0.5s ease, filter 0.5s ease; 
+}
+
+.sin-recuadro:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
 .lazo {
     width: 80px;
     height: 80px;
@@ -208,10 +190,6 @@ p, li {
     right: -30px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.4);
 }
-
-/* ----------------------------- */
-/* RESPONSIVE                   */
-/* ----------------------------- */
 
 @media screen and (max-width: 768px) {
 
