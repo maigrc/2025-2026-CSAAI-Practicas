@@ -3,35 +3,47 @@
 }
 
 .navbar {
-    background-color: transparent;
-    padding: 10px;
-    margin-bottom: 2px;
+    padding: 15px;
+    text-align: center;
 }
 
 .navbar ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+    list-style: none;
     display: flex;
     justify-content: center;
-}
-
-.navbar li {
-    margin: 0 15px;
+    gap: 40px;
 }
 
 .navbar a {
-    color: rgb(220, 0, 0);
+    color: white;
     text-decoration: none;
     font-size: 1.2rem;
-    font-family: 'Georgia', serif;
-    font-weight: bold;
-    display: inline-block;
-    padding-bottom: 5px;
+    letter-spacing: 1px;
+    position: relative;
+    transition: 0.3s ease;
 }
 
+.navbar a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background: white;
+    left: 0;
+    bottom: -5px;
+    transition: 0.4s;
+}
+
+.navbar a:hover::after,
+.active::after {
+    width: 100%;
+}
+.navbar li {
+    margin: 0 15px;
+}*/
+
 .active {
-    border-bottom: 4px solid rgb(220, 0, 0);
+    border-bottom: 4px solid rgb(252, 251, 251);
 }
 
 .columna {
@@ -43,15 +55,15 @@
 }
 
 body {
-    background-image: url('fondo-minnie.webp');
-    background-size: cover;       
-    background-attachment: fixed; 
-    background-repeat: no-repeat; 
+    background-color: #8b0000; 
+    background-image: radial-gradient(rgba(255,255,255,0.12) 10%, transparent 11%);
+    background-size: 35px 35px; 
+    background-attachment: fixed;
 }
-
+    
 h2 {
     text-align: center;
-    color: rgb(220, 0, 0);
+    color: rgb(255, 255, 255);
 }
 
 .contenedor-cards {
@@ -74,17 +86,23 @@ h2 {
     justify-content: space-between;
     transition: transform 0.3s ease;
     backdrop-filter: blur(5px);
+    margin: 0 auto;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 45px rgba(0,0,0,0.7);
 }
 
 .card h3 {
-    color: rgb(220, 0, 0);
+    color: rgb(253, 253, 253);
     margin-top: 0;
     font-family: 'Georgia', serif;
     text-align: center;
 }
 
 .card p {
-    color: rgb(220, 0, 0);
+    color: rgb(255, 255, 255);
     line-height: 1.5;
     font-family: 'Georgia', serif;
 }
@@ -124,7 +142,7 @@ h2 {
     border: 2px solid rgb(220, 0, 0);
     border-radius: 20px;
     padding: 12px 30px;
-    color: rgb(220, 0, 0);
+    color: rgb(255, 254, 254);
     font-family: 'Georgia', serif;
     font-weight: bold;
     text-decoration: none;
@@ -147,6 +165,7 @@ h2 {
     max-width: 400px;
     border-radius: 20px;
 }
+
 @media screen and (max-width: 600px) {
     .card, .columna, .iresponsive {
         width: 100%;
