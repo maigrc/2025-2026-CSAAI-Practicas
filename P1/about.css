@@ -1,16 +1,8 @@
-/* ================================= */
-/*        ABOUT - MINNIE CHIC        */
-/* ================================= */
-
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-
-/* ------------------------------- */
-/* FONDO ELEGANTE CON LUNARES     */
-/* ------------------------------- */
 
 body {
     background-color: #8b0000; 
@@ -19,10 +11,6 @@ body {
     background-attachment: fixed;
     font-family: 'Georgia', serif;
 }
-
-/* ------------------------------- */
-/* NAVBAR MINNIE                  */
-/* ------------------------------- */
 
 .navbar {
     padding: 15px;
@@ -61,20 +49,12 @@ body {
     width: 100%;
 }
 
-/* ------------------------------- */
-/* CONTENEDOR PRINCIPAL           */
-/* ------------------------------- */
-
 .about-container,
 .contenedor-about {
     max-width: 950px;
     margin: auto;
     padding: 30px;
 }
-
-/* ------------------------------- */
-/* FOTO PRINCIPAL ELEGANTE        */
-/* ------------------------------- */
 
 .foto-principal {
     display: flex;
@@ -102,10 +82,6 @@ body {
     filter: brightness(1.05);
 }
 
-/* ------------------------------- */
-/* TÍTULO PRINCIPAL               */
-/* ------------------------------- */
-
 .titulo-sobre-mi {
     text-align: center;
     color: white;
@@ -114,10 +90,6 @@ body {
     margin: 40px 0;
     text-shadow: 2px 4px 10px rgba(0,0,0,0.6);
 }
-
-/* ------------------------------- */
-/* TARJETAS / CUADROS GLAM        */
-/* ------------------------------- */
 
 .cuadro,
 .about-card {
@@ -151,10 +123,6 @@ body {
     line-height: 1.7;
 }
 
-/* ------------------------------- */
-/* GIF HISTORIA                   */
-/* ------------------------------- */
-
 .gif-historia {
     display: block;
     margin: 0 auto 25px auto;
@@ -163,10 +131,6 @@ body {
     border-radius: 25px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.6);
 }
-
-/* ------------------------------- */
-/* COLUMNAS FLEX                  */
-/* ------------------------------- */
 
 .fila-columnas {
     display: flex;
@@ -180,10 +144,6 @@ body {
     flex: 1 1 230px;
     max-width: 270px;
 }
-
-/* ------------------------------- */
-/* SECCIÓN VIDEO ELEGANTE         */
-/* ------------------------------- */
 
 .seccion-video {
     background: linear-gradient(145deg, #a00000, #5a0000);
@@ -213,10 +173,6 @@ body {
     border: none;
 }
 
-/* ------------------------------- */
-/* BOTÓN MINNIE PREMIUM           */
-/* ------------------------------- */
-
 .boton-minnie {
     display: block;
     width: 220px;
@@ -239,10 +195,6 @@ body {
     box-shadow: 0 15px 35px rgba(0,0,0,0.8);
 }
 
-/* ------------------------------- */
-/* ANIMACIÓN SUAVE                */
-/* ------------------------------- */
-
 @keyframes aparecer {
     from {
         opacity: 0;
@@ -253,10 +205,6 @@ body {
         transform: translateY(0);
     }
 }
-
-/* ------------------------------- */
-/* RESPONSIVE                     */
-/* ------------------------------- */
 
 @media screen and (max-width: 768px) {
 
