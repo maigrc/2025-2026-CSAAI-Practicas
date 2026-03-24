@@ -9,7 +9,8 @@ body {
   border: 3px solid #00f0ff;
   box-shadow: 0 0 15px #00f0ff;
   padding: 15px;
-  width: 360px;
+  width: 90%;        
+  max-width: 400px;  
   margin: 20px auto;
 }
 
@@ -26,16 +27,16 @@ body {
 }
 
 .clave div {
-  width: 60px;
-  height: 40px;
+  width: 18vw;      
+  height: 12vw;      
   border: 2px solid #00f0ff;
   box-shadow: 0 0 10px #00f0ff;
-  line-height: 40px;
-  font-size: 22px;
+  line-height: 12vw; 
+  font-size: 5vw;    
 }
 
 #timer {
-  font-size: 32px;
+  font-size: 8vw;   
   margin: 10px 0;
   text-shadow: 0 0 10px #00f0ff;
 }
@@ -43,13 +44,13 @@ body {
 .teclado {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  gap: 3vw;          
   margin-top: 20px;
 }
 
 .teclado button {
-  padding: 15px;
-  font-size: 18px;
+  padding: 4vw;      
+  font-size: 4vw;    
   background: black;
   color: #00f0ff;
   border: 2px solid #00f0ff;
@@ -69,25 +70,17 @@ body {
 .controles {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  gap: 3vw;          
   margin-top: 20px;
 }
 
 .controles button {
+  padding: 3vw;      
+  font-size: 4vw;    
   background: black;
   color: red;
   border: 2px solid red;
   box-shadow: 0 0 10px red;
-}
-
-@media (max-width: 400px) {
-  .container {
-    width: 95%;
-  }
-
-  .clave div {
-    width: 50px;
-  }
 }
 
 .shake {
@@ -122,5 +115,36 @@ body {
 @keyframes caer {
   to {
     transform: translateY(100vh) rotate(360deg);
+  }
+}
+
+@media (max-width: 400px) {
+  .container {
+    width: 95%;
+  }
+
+  .clave div {
+    width: 20vw;
+    height: 14vw;
+    line-height: 14vw;
+    font-size: 6vw;
+  }
+
+  #timer {
+    font-size: 10vw;
+  }
+
+  .teclado {
+    gap: 4vw;
+  }
+
+  .teclado button {
+    padding: 5vw;
+    font-size: 5vw;
+  }
+
+  .controles button {
+    padding: 4vw;
+    font-size: 5vw;
   }
 }
