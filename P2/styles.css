@@ -118,33 +118,31 @@ body {
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 500px) {
   .container {
     width: 95%;
+    max-width: none;
+    padding: 10px;
   }
 
   .clave div {
-    width: 20vw;
+    width: 22vw;     
     height: 14vw;
     line-height: 14vw;
     font-size: 6vw;
   }
 
   #timer {
-    font-size: 10vw;
-  }
-
-  .teclado {
-    gap: 4vw;
+    font-size: 12vw;
   }
 
   .teclado button {
     padding: 5vw;
-    font-size: 5vw;
+    font-size: 6vw;
   }
 
   .controles button {
     padding: 4vw;
-    font-size: 5vw;
+    font-size: 5.5vw;
   }
 }
