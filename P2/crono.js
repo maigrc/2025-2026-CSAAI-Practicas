@@ -1,3 +1,5 @@
+/* jshint esversion: 6 */
+
 let clave = [];
 let intentos = 7;
 let usados = [];
@@ -210,6 +212,9 @@ function resetGame() {
   generarClave();
 }
 
+// Exponer la función globalmente para evitar warning "unused"
+window.resetGame = resetGame;
+
 function lanzarConfeti() {
   const colores = ["#ff0", "#0ff", "#f0f", "#0f0", "#f00", "#00f"];
 
@@ -225,7 +230,12 @@ function lanzarConfeti() {
 
     document.body.appendChild(confeti);
 
-    setTimeout(() => confeti.remove(), 3000);
+    // IIFE para evitar warning sobre closure en bucles
+    (function(c) {
+      setTimeout(function() {
+        c.remove();
+      }, 3000);
+    })(confeti);
   }
 }
 
