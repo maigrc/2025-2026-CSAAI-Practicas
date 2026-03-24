@@ -3,6 +3,11 @@ body {
   color: #00f0ff;
   font-family: monospace;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
 }
 
 .container {
@@ -10,8 +15,10 @@ body {
   box-shadow: 0 0 15px #00f0ff;
   padding: 15px;
   width: 90%;        
-  max-width: 400px;  
+  max-width: 360px;  
   margin: 20px auto;
+  transform-origin: top center;
+  transform: scale(calc(100vw / 360));
 }
 
 .panel {
