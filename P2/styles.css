@@ -1,0 +1,126 @@
+body {
+  background: black;
+  color: #00f0ff;
+  font-family: monospace;
+  text-align: center;
+}
+
+.container {
+  border: 3px solid #00f0ff;
+  box-shadow: 0 0 15px #00f0ff;
+  padding: 15px;
+  width: 360px;
+  margin: 20px auto;
+}
+
+.panel {
+  border: 2px solid #00f0ff;
+  box-shadow: inset 0 0 10px #00f0ff;
+  padding: 15px;
+}
+
+.clave {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.clave div {
+  width: 60px;
+  height: 40px;
+  border: 2px solid #00f0ff;
+  box-shadow: 0 0 10px #00f0ff;
+  line-height: 40px;
+  font-size: 22px;
+}
+
+#timer {
+  font-size: 32px;
+  margin: 10px 0;
+  text-shadow: 0 0 10px #00f0ff;
+}
+
+.teclado {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.teclado button {
+  padding: 15px;
+  font-size: 18px;
+  background: black;
+  color: #00f0ff;
+  border: 2px solid #00f0ff;
+  box-shadow: 0 0 10px #00f0ff;
+  cursor: pointer;
+}
+
+.teclado button:hover {
+  background: #001f26;
+}
+
+.teclado button:disabled {
+  opacity: 0.3;
+  box-shadow: none;
+}
+
+.controles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.controles button {
+  background: black;
+  color: red;
+  border: 2px solid red;
+  box-shadow: 0 0 10px red;
+}
+
+@media (max-width: 400px) {
+  .container {
+    width: 95%;
+  }
+
+  .clave div {
+    width: 50px;
+  }
+}
+
+.shake {
+  animation: shake 0.5s;
+}
+
+@keyframes shake {
+  0% { transform: translate(5px, 5px); }
+  25% { transform: translate(-5px, 5px); }
+  50% { transform: translate(5px, -5px); }
+  75% { transform: translate(-5px, -5px); }
+  100% { transform: translate(0,0); }
+}
+
+.explosion {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 220px;
+  z-index: 999;
+}
+
+.confeti {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  top: -10px;
+  animation: caer linear;
+}
+
+@keyframes caer {
+  to {
+    transform: translateY(100vh) rotate(360deg);
+  }
+}

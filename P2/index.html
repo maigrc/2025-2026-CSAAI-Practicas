@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>BOOM</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>BOOM</h1>
+
+  <div class="panel">
+    <div id="clave" class="clave">
+      <div>*</div>
+      <div>*</div>
+      <div>*</div>
+      <div>*</div>
+    </div>
+
+    <div id="timer">0:00:00</div>
+    <p id="intentos">Intentos restantes: 7</p>
+    <p id="mensaje">Nueva partida preparada. Pulsa Start o un número.</p>
+
+    <div class="teclado" id="teclado"></div>
+
+    <div class="controles">
+      <button onclick="start()">Start</button>
+      <button onclick="stop()">Stop</button>
+      <button onclick="resetGame()">Reset</button>
+    </div>
+  </div>
+</div>
+
+<script src="crono.js"></script>
+</body>
+</html>
