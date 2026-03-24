@@ -7,7 +7,6 @@ let segundos = 0;
 let timer = null;
 let iniciado = false;
 
-// --- AUDIOS ---
 const audioTiktak = new Audio("ticktack.mp3");
 audioTiktak.loop = true;
 
@@ -98,10 +97,8 @@ function ganar() {
 
   document.body.classList.add("shake");
 
-  // SOLO AQUI SE LANZAN LOS CONFETIS
   lanzarConfeti();
 
-  // AUDIO VICTORIA
   audioVictoria.play();
 
   bloquear();
@@ -110,7 +107,6 @@ function ganar() {
 function perder() {
   stop();
 
-  // ELIMINAR CONFETIS POR SI QUEDAN
   document.querySelectorAll(".confeti").forEach(e => e.remove());
 
   const mensaje = document.getElementById("mensaje");
@@ -132,7 +128,6 @@ function perder() {
   img.className = "explosion";
   document.body.appendChild(img);
 
-  // AUDIO EXPLOSION
   audioExplosion.play();
 
   bloquear();
@@ -154,7 +149,6 @@ function start() {
     document.getElementById("timer").textContent = formato();
   }, 1000);
 
-  // AUDIO TIKTAK
   audioTiktak.play();
 }
 
@@ -164,7 +158,6 @@ function stop() {
 
   document.getElementById("mensaje").textContent = "Cronómetro detenido";
 
-  // DETENER AUDIO TIKTAK
   audioTiktak.pause();
   audioTiktak.currentTime = 0;
 }
@@ -201,7 +194,6 @@ function resetGame() {
   document.querySelectorAll(".explosion").forEach(e => e.remove());
   document.querySelectorAll(".confeti").forEach(e => e.remove());
 
-  // DETENER TODOS LOS AUDIOS
   audioVictoria.pause();
   audioVictoria.currentTime = 0;
   audioExplosion.pause();
@@ -212,7 +204,6 @@ function resetGame() {
   generarClave();
 }
 
-// Exponer la función globalmente para evitar warning "unused"
 window.resetGame = resetGame;
 
 function lanzarConfeti() {
@@ -230,7 +221,6 @@ function lanzarConfeti() {
 
     document.body.appendChild(confeti);
 
-    // IIFE para evitar warning sobre closure en bucles
     (function(c) {
       setTimeout(function() {
         c.remove();
