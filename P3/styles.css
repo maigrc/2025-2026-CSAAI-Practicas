@@ -1,0 +1,30 @@
+body {
+  background: black;
+  color: white;
+  text-align: center;
+  font-family: Arial;
+  margin: 0;
+}
+
+h1 {
+  margin: 10px;
+}
+
+
+.game-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+canvas {
+  border: 2px solid white;
+  background: black;
+
+  width: 95vw;        
+  max-width: 800px;  
+
+  height: auto;
+  touch-action: none; 
+}
