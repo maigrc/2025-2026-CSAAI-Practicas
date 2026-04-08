@@ -250,3 +250,28 @@ alienImg.onload = startGame;
 explosionImg.onload = startGame;
 
 function gameLoop() { update(); draw(); if (!gameOver && !victory) requestAnimationFrame(gameLoop); }
+
+/* CONTROLES MOVIL */
+
+const leftBtn = document.getElementById("leftBtn");
+const rightBtn = document.getElementById("rightBtn");
+const shootBtn = document.getElementById("shootBtn");
+const restartBtn = document.getElementById("restartBtn");
+
+if(leftBtn){
+leftBtn.addEventListener("touchstart",()=>{keys["ArrowLeft"]=true;});
+leftBtn.addEventListener("touchend",()=>{keys["ArrowLeft"]=false;});
+}
+
+if(rightBtn){
+rightBtn.addEventListener("touchstart",()=>{keys["ArrowRight"]=true;});
+rightBtn.addEventListener("touchend",()=>{keys["ArrowRight"]=false;});
+}
+
+if(shootBtn){
+shootBtn.addEventListener("touchstart",shoot);
+}
+
+if(restartBtn){
+restartBtn.addEventListener("touchstart",()=>location.reload());
+}

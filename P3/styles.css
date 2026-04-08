@@ -28,3 +28,37 @@ canvas {
   height: auto;
   touch-action: none; 
 }
+
+/* CONTROLES MOVIL */
+
+#mobileControls{
+  position: fixed;
+  bottom: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+#mobileControls button{
+  width: 70px;
+  height: 70px;
+  font-size: 30px;
+  border-radius: 15px;
+  border: none;
+  background: rgba(0,0,0,0.6);
+  color: white;
+}
+
+#restartBtn{
+  position: fixed;
+  bottom: 110px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 10px;
+  border: none;
+  background: red;
+  color: white;
+}
