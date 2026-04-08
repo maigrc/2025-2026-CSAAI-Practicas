@@ -148,7 +148,7 @@ function update() {
   bullets.forEach((b, i) => { b.y -= 8; if (b.y < 0) bullets.splice(i, 1); });
   enemyBullets.forEach((b, i) => { b.y += 4; if (b.y > baseHeight) enemyBullets.splice(i, 1); });
 
-  let speed = 1 + (24 - aliens.length) * 0.06;
+  let speed = 2 + (24 - aliens.length) * 0.1;
 
   let hitEdge = false;
   aliens.forEach(a => { a.x += speed * alienDirection; if (a.x <= 0 || a.x + a.width >= baseWidth) hitEdge = true; });
