@@ -1,161 +1,226 @@
+:root{
+
+--bg-main:#ddf9e9;
+--bg-dark:#8cd1a4;
+--panel-bg:#ffffff;
+--text-dark:#1b5e3c;
+--card-light:#ffffff;
+--card-green:#c2f6d2;
+--highlight:#2ecc71;
+
+}
+
 *{
-
 box-sizing:border-box;
-user-select:none;
-
+margin:0;
+padding:0;
+font-family:Segoe UI, sans-serif;
 }
 
 body{
-
-margin:0;
-background-color:#0e1a2b;
-color:white;
-font-family:Arial;
-
+background:var(--bg-main);
 display:flex;
 justify-content:center;
-align-items:center;
+padding:20px;
 min-height:100vh;
-
 }
 
-#juego{
-
-background:#1f3557;
-width:95%;
-max-width:650px;
-height:90vh;
-
-border-radius:10px;
-
+.game-container{
 display:flex;
-flex-direction:column;
-justify-content:space-between;
-align-items:center;
-
-padding:10px;
-
-}
-
-.panel-controles{
-
-background:#13243d;
-width:100%;
-height:20%;
-
-border-radius:8px;
-
-display:flex;
-flex-wrap:wrap;
-justify-content:space-evenly;
-align-items:center;
-
-box-shadow:0px 10px 20px black;
-
-}
-
-button, select{
-
-width:20%;
-height:45%;
-
-border-radius:8px;
-border:none;
-
-background:#2f6fb1;
-color:white;
-
-font-size:100%;
-cursor:pointer;
-
-transition:0.2s;
-
-}
-
-button:hover{
-
-background:#4a90e2;
-transform:scale(1.05);
-
-}
-
-#zona-juego{
-
-width:100%;
-height:80%;
-
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-
 gap:20px;
-
+max-width:1200px;
+width:100%;
+background:linear-gradient(180deg,var(--bg-main),var(--bg-dark));
+padding:20px;
+border-radius:25px;
 }
 
-#mensaje{
+.sidebar{
+width:280px;
+display:flex;
+flex-direction:column;
+gap:15px;
+}
 
-font-size:28px;
+.logo-area h1{
+color:rgb(47, 145, 88);
+font-size:2em;
+}
+
+.logo-area p{
+color:rgb(92, 252, 108);
 font-weight:bold;
-
+font-size:0.9em;
 }
 
-#tablero{
+.panel{
+background:white;
+border-radius:15px;
+padding:15px;
+box-shadow:0 5px 12px rgba(0,0,0,0.1);
+}
 
+.control-group{
+margin-bottom:10px;
+display:flex;
+flex-direction:column;
+}
+
+select{
+padding:10px;
+border-radius:10px;
+border:1px solid #ccc;
+}
+
+.checkbox-group{
+margin-top:10px;
+}
+
+.btn{
+width:100%;
+padding:12px;
+border:none;
+border-radius:10px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.primary{
+background:#1b5e3c;
+color:white;
+}
+
+.secondary{
+background:#eee;
+}
+
+.btn:disabled{
+opacity:0.5;
+}
+
+.btn-music{
+margin-top:10px;
+padding:10px;
+border-radius:10px;
+border:2px solid var(--highlight);
+background:white;
+cursor:pointer;
+font-weight:bold;
+}
+
+.main-area{
+flex:1;
+display:flex;
+flex-direction:column;
+gap:20px;
+}
+
+.top-bar{
+display:flex;
+gap:10px;
+}
+
+.stat-box{
+background:white;
+padding:10px 20px;
+border-radius:15px;
+text-align:center;
+}
+
+.main-display{
+display:flex;
+align-items:center;
+gap:20px;
+background:white;
+padding:15px;
+border-radius:20px;
+}
+
+.avatar-box{
+width:120px;
+height:140px;
+overflow:hidden;
+border-radius:15px;
+border:3px solid var(--highlight);
+}
+
+.avatar-img{
 width:100%;
 height:100%;
-
-display:flex;
-flex-wrap:wrap;
-justify-content:space-evenly;
-align-items:center;
-
+object-fit:cover;
 }
 
-.carta{
-
-width:22%;
-height:22%;
-
-background:#dbe8f7;
-
+.message-box h2{
+background:rgb(66, 237, 126);
+padding:10px 25px;
 border-radius:15px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
 
+.grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:15px;
+}
+
+.card{
+border-radius:15px;
 display:flex;
-justify-content:center;
+flex-direction:column;
 align-items:center;
-
-transition:0.2s;
-
+justify-content:center;
+padding:15px;
+gap:10px;
+transition:0.3s;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
 }
 
-.carta img{
-
-width:70%;
-
+.card.type-a{
+background:var(--card-green);
 }
 
-.carta.activa{
+.card.type-b{
+background:var(--card-light);
+}
 
-border:5px solid #ff4d4d;
-background:white;
+.card-image{
+width:100%;
+height:90px;
+object-fit:contain;
+}
+
+.card-label{
+width:100%;
+background:var(--text-dark);
+color:white;
+text-align:center;
+padding:8px;
+border-radius:10px;
+font-weight:bold;
+}
+
+.card.active{
 transform:scale(1.1);
-
+border:4px solid var(--highlight);
+box-shadow:0 0 25px rgba(46,204,113,0.6);
 }
 
-@media screen and (max-width:600px){
-
-.panel-controles{
-
-font-size:90%;
-
+.hide-labels .card-label{
+visibility:hidden;
 }
 
-button, select{
+@media(max-width:900px){
 
-width:40%;
-height:35%;
+.game-container{
+flex-direction:column;
+}
 
+.sidebar{
+width:100%;
+}
+
+.grid{
+grid-template-columns:repeat(2,1fr);
 }
 
 }

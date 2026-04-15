@@ -1,195 +1,296 @@
-let tablero = document.getElementById("tablero")
+const pairs = {
 
-let btnComenzar = document.getElementById("comenzar")
-let btnDetener = document.getElementById("detener")
-let btnMusica = document.getElementById("musica")
-
-let infoNivel = document.getElementById("infoNivel").firstChild
-let infoTiempo = document.getElementById("infoTiempo").firstChild
-let infoEstado = document.getElementById("infoEstado").firstChild
-
-let mensaje = document.getElementById("mensaje")
-
-let selectorNivel = document.getElementById("nivelInicial")
-
-let audio = document.getElementById("audio")
-
-let cartas = []
-
-let juego = {
-
-activo:false,
-nivel:1,
-tiempo:0,
-timer:null,
-
-velocidad:{
-1:800,
-2:600,
-3:450,
-4:300,
-5:180
+casa_cama:{
+w1:{word:"CASA",img:"casa.png",type:"type-b"},
+w2:{word:"CAMA",img:"cama.png",type:"type-a"}
 },
 
-niveles:{
+pato_gato:{
+w1:{word:"PATO",img:"pato.png",type:"type-b"},
+w2:{word:"GATO",img:"gato.png",type:"type-a"}
+},
 
-1:["cama","cama","cama","cama","casa","casa","casa","casa"],
-2:["cama","casa","cama","casa","cama","casa","cama","casa"],
-3:["casa","casa","cama","cama","casa","casa","cama","cama"],
-4:["cama","casa","casa","cama","casa","cama","cama","casa"],
-5:["casa","cama","casa","cama","casa","cama","casa","cama"]
+queso_beso:{
+w1:{word:"QUESO",img:"queso.png",type:"type-b"},
+w2:{word:"BESO",img:"beso.png",type:"type-a"}
+},
 
+luna_cuna:{
+w1:{word:"LUNA",img:"luna.png",type:"type-b"},
+w2:{word:"CUNA",img:"cuna.png",type:"type-a"}
 }
 
 }
 
-function generarTablero(){
+const levelDistributions={
+1:[0,0,0,0,1,1,1,1],
+2:[0,0,1,1,0,0,1,1],
+3:[0,1,0,1,0,1,0,1],
+4:[1,0,0,1,1,0,0,1],
+5:[0,1,1,0,1,0,0,1]
+}
 
-tablero.innerHTML=""
+const speeds={
+1:1100,
+2:900,
+3:700,
+4:500,
+5:350
+}
 
-for(let i=0;i<8;i++){
+let isPlaying=false
+let currentLevel=1
+let currentPosition=0
+let timeElapsed=0
+let gameInterval
+let timerInterval
+let currentDistribution=[]
+let currentPair=null
 
-let carta=document.createElement("div")
-carta.classList.add("carta")
+const selectSequence=document.getElementById("sequence-select")
+const selectLevel=document.getElementById("level-select")
+const checkLabels=document.getElementById("show-labels")
 
-tablero.appendChild(carta)
+const btnStart=document.getElementById("btn-start")
+const btnStop=document.getElementById("btn-stop")
+const btnMusic=document.getElementById("btn-music")
 
-cartas.push(carta)
+const grid=document.getElementById("game-grid")
+const mainMessage=document.getElementById("main-message")
+
+const displayLevel=document.getElementById("display-level")
+const displayTime=document.getElementById("display-time")
+const displayState=document.getElementById("display-state")
+
+const bgMusic=document.getElementById("bg-music")
+
+function init(){
+
+renderGrid()
+
+selectSequence.addEventListener("change",renderGrid)
+checkLabels.addEventListener("change",toggleLabels)
+
+btnStart.addEventListener("click",startGame)
+btnStop.addEventListener("click",stopGame)
+btnMusic.addEventListener("click",toggleMusic)
 
 }
 
-}
+document.addEventListener("DOMContentLoaded", init)
 
-function cargarNivel(n){
+function renderGrid(){
 
-let layout=juego.niveles[n]
+grid.innerHTML=""
 
-cartas.forEach((carta,i)=>{
+const pairKey=selectSequence.value
+currentPair=pairs[pairKey]
 
-carta.innerHTML=`<img src="${layout[i]}.png">`
+const lvlPreview=isPlaying?currentLevel:parseInt(selectLevel.value)
+
+currentDistribution=levelDistributions[lvlPreview]
+
+currentDistribution.forEach(val=>{
+
+const item=val===0?currentPair.w1:currentPair.w2
+
+const card=document.createElement("div")
+
+card.className=`card ${item.type}`
+
+card.innerHTML=`
+<img src="${item.img}" class="card-image">
+<div class="card-label">${item.word}</div>
+`
+
+grid.appendChild(card)
 
 })
 
-}
-
-function iniciarTiempo(){
-
-juego.timer=setInterval(()=>{
-
-juego.tiempo++
-
-infoTiempo.textContent=juego.tiempo+" Segundos"
-
-},1000)
+toggleLabels()
 
 }
 
-function pararTiempo(){
+function toggleLabels(){
 
-clearInterval(juego.timer)
+if(checkLabels.checked){
 
-}
-
-function sleep(ms){
-
-return new Promise(r=>setTimeout(r,ms))
-
-}
-
-async function secuencia(vel){
-
-for(let i=0;i<cartas.length;i++){
-
-if(!juego.activo) return
-
-cartas[i].classList.add("activa")
-
-await sleep(vel)
-
-cartas[i].classList.remove("activa")
-
-}
-
-}
-
-async function comenzar(){
-
-juego.activo=true
-juego.tiempo=0
-
-infoEstado.textContent="Jugando"
-
-juego.nivel=parseInt(selectorNivel.value)
-
-iniciarTiempo()
-
-audio.play()
-
-for(let n=juego.nivel;n<=5;n++){
-
-infoNivel.textContent="Nivel "+n
-
-cargarNivel(n)
-
-mensaje.textContent="Preparado..."
-
-await sleep(2000)
-
-mensaje.textContent="¡Vamos!"
-
-await secuencia(juego.velocidad[n])
-
-}
-
-terminar()
-
-}
-
-function detener(){
-
-juego.activo=false
-
-pararTiempo()
-
-audio.pause()
-
-infoEstado.textContent="Detenido"
-
-mensaje.textContent="Juego detenido"
-
-}
-
-function terminar(){
-
-juego.activo=false
-
-pararTiempo()
-
-audio.pause()
-
-infoEstado.textContent="Finalizado"
-
-mensaje.textContent="Partida terminada"
-
-}
-
-btnComenzar.onclick=comenzar
-btnDetener.onclick=detener
-
-btnMusica.onclick=()=>{
-
-if(audio.paused){
-
-audio.play()
-btnMusica.textContent="Música ON"
+grid.classList.remove("hide-labels")
 
 }else{
 
-audio.pause()
-btnMusica.textContent="Música OFF"
+grid.classList.add("hide-labels")
 
 }
 
 }
 
-generarTablero()
+function startGame(){
+
+if(isPlaying) return
+
+isPlaying=true
+
+currentLevel=parseInt(selectLevel.value)
+timeElapsed=0
+
+btnStart.disabled=true
+btnStop.disabled=false
+selectSequence.disabled=true
+selectLevel.disabled=true
+
+if(btnMusic.innerText.includes("ON")){
+
+bgMusic.currentTime=0
+
+bgMusic.play().catch(()=>{})
+
+}
+
+startTimer()
+
+prepareRound()
+
+}
+
+function stopGame(){
+
+isPlaying=false
+
+clearInterval(gameInterval)
+clearInterval(timerInterval)
+
+btnStart.disabled=false
+btnStop.disabled=true
+selectSequence.disabled=false
+selectLevel.disabled=false
+
+displayState.innerText="Detenido"
+mainMessage.innerText="Juego detenido"
+
+document.querySelectorAll(".card").forEach(c=>c.classList.remove("active"))
+
+bgMusic.pause()
+
+}
+
+function startTimer(){
+
+displayTime.innerText="0.0s"
+
+timerInterval=setInterval(()=>{
+
+timeElapsed+=0.1
+
+displayTime.innerText=timeElapsed.toFixed(1)+"s"
+
+},100)
+
+}
+
+function prepareRound(){
+
+if(!isPlaying) return
+
+displayLevel.innerText=`${currentLevel}/5`
+displayState.innerText="Preparando"
+mainMessage.innerText="Preparando ronda..."
+
+renderGrid()
+
+setTimeout(()=>{
+
+if(!isPlaying) return
+
+playSequence()
+
+},1200)
+
+}
+function playSequence(){
+
+displayState.innerText="Jugando"
+
+currentPosition=0
+
+highlightCard(currentPosition)
+
+const speed=speeds[currentLevel]
+
+gameInterval=setInterval(()=>{
+
+currentPosition++
+
+if(currentPosition>=8){
+
+clearInterval(gameInterval)
+
+finishRound()
+
+}else{
+
+highlightCard(currentPosition)
+
+}
+
+},speed)
+
+}
+function highlightCard(index){
+
+const cards=document.querySelectorAll(".card")
+
+cards.forEach(c=>c.classList.remove("active"))
+
+if(cards[index]){
+
+cards[index].classList.add("active")
+
+const wordType=currentDistribution[index]
+
+const expectedWord=wordType===0?currentPair.w1.word:currentPair.w2.word
+
+mainMessage.innerText=expectedWord
+
+}
+
+}
+
+function finishRound(){
+
+document.querySelectorAll(".card").forEach(c=>c.classList.remove("active"))
+
+if(currentLevel<5){
+
+currentLevel++
+
+prepareRound()
+
+}else{
+
+stopGame()
+
+displayState.innerText="Finalizado"
+
+mainMessage.innerText="¡Has completado todos los niveles!"
+
+}
+
+}
+function toggleMusic(){
+
+if(btnMusic.innerText.includes("OFF")){
+
+btnMusic.innerText="Música 🎵 : ON"
+
+bgMusic.play().catch(()=>{})
+
+}else{
+
+btnMusic.innerText="Música 🎵 : OFF"
+
+bgMusic.pause()
+
+}
+
+}
