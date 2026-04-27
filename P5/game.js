@@ -1,3 +1,4 @@
+/* jshint esversion: 6 */
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 canvas.width = 800; canvas.height = 500;
@@ -7,7 +8,7 @@ let gameMode = 1;
 let score = { player: 0, bot: 0 };
 let countdownNum = 3;
 
-// --- CONFIGURACIÓN DE AUDIO (Corte a 2s) ---
+// --- CONFIGURACIÓN DE AUDIO ---
 const sounds = {
     tick: new Audio('tick.mp3'),
     start: new Audio('start.mp3'),
@@ -20,12 +21,11 @@ function playSfx(name) {
     if (sounds[name]) {
         const s = sounds[name];
         s.currentTime = 0;
-        s.play().catch(() => {});
-        setTimeout(() => { s.pause(); s.currentTime = 0; }, 2000);
+        s.play().catch(function() {});
+        setTimeout(function() { s.pause(); s.currentTime = 0; }, 2000);
     }
 }
 
-// --- CONSTANTES DE CAMPO ---
 const MARGIN_X = 40; 
 const MARGIN_Y = 30; 
 const GOAL_TOP = 180;
@@ -39,34 +39,25 @@ let rivals = [
 ];
 let ally = { x: 250, y: 350, r: 18, color: '#3a78a1', speed: 1.2 };
 
-const allPlayers = [player, ...rivals, ally];
+const allPlayers = [player, rivals[0], rivals[1], ally];
 const keys = {};
 
-// --- LÓGICA DE TECLAS REVISADA ---
-window.addEventListener('keydown', (e) => {
+window.addEventListener('keydown', function(e) {
     keys[e.code] = true;
-    
-    // Si no estamos en el menú, R y M siempre funcionan
     if (state !== 'MENU') {
-        if (e.code === 'KeyR') {
-            startGame(gameMode); // Reinicia partido y marcador
-        }
-        if (e.code === 'KeyM') {
-            state = 'MENU'; // Vuelve al menú
-            updateUI();
-        }
+        if (e.code === 'KeyR') startGame(gameMode);
+        if (e.code === 'KeyM') { state = 'MENU'; updateUI(); }
     } else {
-        // En el menú elegimos modo
         if (e.key === '1') startGame(1);
         if (e.key === '2') startGame(2);
     }
 });
 
-window.addEventListener('keyup', (e) => keys[e.code] = false);
+window.addEventListener('keyup', function(e) { keys[e.code] = false; });
 
 function startGame(mode) {
     gameMode = mode;
-    score = { player: 0, bot: 0 };
+    score.player = 0; score.bot = 0;
     document.getElementById('score').innerText = "0 - 0";
     resetPositions();
     startCountdown();
@@ -84,7 +75,7 @@ function startCountdown() {
     state = 'COUNTDOWN';
     countdownNum = 3;
     updateUI();
-    let timer = setInterval(() => {
+    let timer = setInterval(function() {
         if(countdownNum > 0) playSfx('tick');
         countdownNum--;
         if (countdownNum <= 0) {
@@ -110,13 +101,12 @@ function updateUI() {
 function update() {
     if (state !== 'PLAYING') return;
 
-    // Controles movimiento
-    if (keys['ArrowUp']) player.y -= 3.5;
-    if (keys['ArrowDown']) player.y += 3.5;
-    if (keys['ArrowLeft']) player.x -= 3.5;
-    if (keys['ArrowRight']) player.x += 3.5;
-    if (keys['KeyA']) player.angle -= 0.12;
-    if (keys['KeyD']) player.angle += 0.12;
+    if (keys.ArrowUp) player.y -= 3.0;
+    if (keys.ArrowDown) player.y += 3.0;
+    if (keys.ArrowLeft) player.x -= 3.0;
+    if (keys.ArrowRight) player.x += 3.0;
+    if (keys.KeyA) player.angle -= 0.12;
+    if (keys.KeyD) player.angle += 0.12;
 
     for (let p of allPlayers) {
         if (p !== player) {
@@ -124,7 +114,6 @@ function update() {
             let dist = Math.hypot(dx, dy);
             if (dist > 5) { p.x += (dx/dist) * p.speed; p.y += (dy/dist) * p.speed; }
         }
-
         p.x = Math.max(MARGIN_X + p.r, Math.min(canvas.width - MARGIN_X - p.r, p.x));
         p.y = Math.max(MARGIN_Y + p.r, Math.min(canvas.height - MARGIN_Y - p.r, p.y));
 
@@ -147,7 +136,7 @@ function update() {
         }
     }
 
-    if (keys['Space']) {
+    if (keys.Space) {
         let d = Math.hypot(ball.x - player.x, ball.y - player.y);
         if (d < 50) { ball.vx = Math.cos(player.angle) * 17; ball.vy = Math.sin(player.angle) * 17; }
     }
@@ -155,7 +144,6 @@ function update() {
     ball.x += ball.vx; ball.y += ball.vy;
     ball.vx *= 0.985; ball.vy *= 0.985;
 
-    // Límites estrictos para que la bola no se escape
     if (ball.y < MARGIN_Y + ball.r) { ball.y = MARGIN_Y + ball.r; ball.vy *= -1; }
     if (ball.y > canvas.height - MARGIN_Y - ball.r) { ball.y = canvas.height - MARGIN_Y - ball.r; ball.vy *= -1; }
 
@@ -177,13 +165,13 @@ function update() {
 
 function handleGoal(who) {
     if (who === 'player') score.player++; else score.bot++;
-    document.getElementById('score').innerText = `${score.player} - ${score.bot}`;
+    document.getElementById('score').innerText = score.player + " - " + score.bot;
     let isGameOver = (gameMode === 1 && (score.player >= 3 || score.bot >= 3)) || gameMode === 2;
     state = isGameOver ? 'GAMEOVER' : 'GOAL';
     playSfx(isGameOver ? (score.player > score.bot ? 'win' : 'lose') : 'goal');
     updateUI();
     document.getElementById('status-title').innerText = isGameOver ? (score.player > score.bot ? "¡Has ganado!" : "¡Perdiste!") : "¡GOOOL!";
-    if (!isGameOver) setTimeout(() => { resetPositions(); startCountdown(); }, 1800);
+    if (!isGameOver) setTimeout(function() { resetPositions(); startCountdown(); }, 1800);
 }
 
 function draw() {
@@ -193,7 +181,6 @@ function draw() {
     ctx.beginPath(); ctx.moveTo(400, MARGIN_Y); ctx.lineTo(400, 470); ctx.stroke();
     ctx.beginPath(); ctx.arc(400, 250, 60, 0, Math.PI*2); ctx.stroke();
 
-    // Porterías visuales grises
     ctx.fillStyle = '#666';
     ctx.fillRect(MARGIN_X - 30, GOAL_TOP, 30, GOAL_BOTTOM - GOAL_TOP); 
     ctx.fillRect(canvas.width - MARGIN_X, GOAL_TOP, 30, GOAL_BOTTOM - GOAL_TOP); 
@@ -225,23 +212,20 @@ function bindTouch(id, code) {
     const btn = document.getElementById(id);
     if (!btn) return;
     
-    const press = (e) => { 
+    btn.addEventListener('touchstart', function(e) { 
         e.preventDefault(); 
         keys[code] = true; 
-        // Simular evento keydown para R y M
         if(code === 'KeyR' || code === 'KeyM') {
-            window.dispatchEvent(new KeyboardEvent('keydown', { 'code': code }));
+            if (typeof KeyboardEvent !== 'undefined') {
+                window.dispatchEvent(new KeyboardEvent('keydown', { 'code': code }));
+            }
         }
-    };
-    const release = (e) => { e.preventDefault(); keys[code] = false; };
-
-    btn.addEventListener('touchstart', press);
-    btn.addEventListener('touchend', release);
-    btn.addEventListener('mousedown', press);
-    btn.addEventListener('mouseup', release);
+    });
+    btn.addEventListener('touchend', function(e) { e.preventDefault(); keys[code] = false; });
+    btn.addEventListener('mousedown', function(e) { keys[code] = true; });
+    btn.addEventListener('mouseup', function(e) { keys[code] = false; });
 }
 
-// Vinculamos botones a las teclas que ya reconoce tu update()
 bindTouch('btn-up', 'ArrowUp');
 bindTouch('btn-down', 'ArrowDown');
 bindTouch('btn-left', 'ArrowLeft');
