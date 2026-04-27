@@ -130,7 +130,7 @@ function update() {
         let db = Math.hypot(ball.x - p.x, ball.y - p.y);
         if (db < p.r + ball.r) {
             let ang = Math.atan2(ball.y - p.y, ball.x - p.x);
-            ball.vx = Math.cos(ang) * 6; ball.vy = Math.sin(ang) * 6;
+            ball.vx = Math.cos(ang) * 4; ball.vy = Math.sin(ang) * 4;
             ball.x = p.x + Math.cos(ang) * (p.r + ball.r + 2);
             ball.y = p.y + Math.sin(ang) * (p.r + ball.r + 2);
         }
@@ -151,14 +151,14 @@ function update() {
         if (ball.y > GOAL_TOP && ball.y < GOAL_BOTTOM) {
             if (ball.x < 15) handleGoal('bot');
         } else {
-            ball.x = MARGIN_X + ball.r; ball.vx *= -1;
+            ball.x = MARGIN_X + ball.r; ball.vx *= -0.5;
         }
     }
     if (ball.x > canvas.width - MARGIN_X - ball.r) {
         if (ball.y > GOAL_TOP && ball.y < GOAL_BOTTOM) {
             if (ball.x > canvas.width - 15) handleGoal('player');
         } else {
-            ball.x = canvas.width - MARGIN_X - ball.r; ball.vx *= -1;
+            ball.x = canvas.width - MARGIN_X - ball.r; ball.vx *= -0.5;
         }
     }
 }
