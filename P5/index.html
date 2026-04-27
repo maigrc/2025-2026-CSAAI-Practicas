@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Bot League</title>
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+</head>
+<body>
+    <div id="game-wrapper">
+        <header>
+            <h1>Bot League</h1>
+            <p>Versión 0 · Movimiento, dirección y chut</p>
+        </header>
+
+        <div id="canvas-container">
+            <div id="hud">
+                <div id="score">0 - 0</div>
+                <div id="mode-text">A 3 goles</div>
+            </div>
+
+            <canvas id="gameCanvas"></canvas>
+
+            <div id="overlay" class="visible">
+                <div id="menu-content">
+                    <h2>Bot League</h2>
+                    <p>Elige modo de juego</p>
+                    <button class="game-btn" onclick="startGame(1)">1: Partido a 3 goles</button>
+                    <button class="game-btn" onclick="startGame(2)">2: Gol de oro</button>
+                </div>
+                
+                <div id="status-content" class="hidden">
+                    <h2 id="status-title">¡Has ganado!</h2>
+                    <p id="status-msg">¡GOOOL!</p>
+                    <p id="status-mode-info">Modo: a 3 goles</p>
+                    <div id="final-options" class="hidden">
+                        <button class="game-btn" onclick="startGame(gameMode)">R: Reiniciar</button>
+                        <button class="game-btn" onclick="state='MENU'; updateUI();">M: Menú</button>
+                    </div>
+                </div>
+
+                <div id="countdown-display" class="hidden">3</div>
+            </div>
+        </div>
+
+        <div id="mobile-controls">
+            <div class="dpad">
+                <button class="t-btn" id="btn-up">↑</button>
+                <div class="dpad-mid">
+                    <button class="t-btn" id="btn-left">←</button>
+                    <button class="t-btn" id="btn-right">→</button>
+                </div>
+                <button class="t-btn" id="btn-down">↓</button>
+            </div>
+            <div class="actions">
+                <button class="t-btn shot-btn" id="btn-shot">CHUT</button>
+                <div class="rot-btns">
+                    <button class="t-btn small" id="btn-rot-l">↺</button>
+                    <button class="t-btn small" id="btn-rot-r">↻</button>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Controles: Flechas para mover · A/D para girar · Espacio para chutar · M para volver al menú · R para reiniciar</p>
+        </footer>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>

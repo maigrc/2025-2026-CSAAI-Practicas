@@ -1,0 +1,37 @@
+body { margin: 0; background-color: #121212; color: white; font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; overflow: hidden; touch-action: none; }
+#game-wrapper { text-align: center; width: 100%; max-width: 800px; padding: 10px; box-sizing: border-box; }
+header h1 { margin: 0; font-size: 28px; }
+header p { color: #888; margin: 5px 0 15px 0; font-size: 14px; }
+
+#canvas-container { position: relative; border: 4px solid white; background-color: #1a3c1f; width: 100%; overflow: hidden; }
+canvas { display: block; width: 100%; height: auto; }
+
+#hud { position: absolute; top: 15px; width: 100%; color: rgba(255,255,255,0.4); z-index: 5; pointer-events: none; }
+#score { font-size: clamp(30px, 8vw, 45px); font-weight: bold; }
+
+#overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 10; }
+.hidden { display: none !important; }
+
+#status-title { font-size: clamp(40px, 10vw, 80px); margin: 0; font-weight: bold; }
+#status-msg { font-size: 24px; color: #bbb; margin: 0; }
+#status-mode-info { font-size: 16px; margin: 10px 0; }
+
+#countdown-display { font-size: 100px; font-weight: bold; }
+.game-btn { background: white; border: none; padding: 10px 25px; margin: 10px; font-size: 18px; font-weight: bold; cursor: pointer; }
+footer { margin-top: 15px; font-size: 11px; color: white; font-weight: bold; }
+
+/* ESTILOS MÓVIL */
+#mobile-controls { display: none; justify-content: space-between; align-items: center; margin-top: 15px; width: 100%; user-select: none; }
+.t-btn { background: rgba(255,255,255,0.15); border: 2px solid rgba(255,255,255,0.5); color: white; width: 55px; height: 55px; border-radius: 50%; font-size: 20px; touch-action: manipulation; }
+.dpad { display: flex; flex-direction: column; align-items: center; }
+.dpad-mid { display: flex; gap: 40px; }
+.actions { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.shot-btn { width: 75px; height: 75px; background: rgba(255,0,0,0.3); border-color: red; font-size: 14px; }
+.rot-btns { display: flex; gap: 10px; }
+.small { width: 45px; height: 45px; font-size: 16px; }
+
+@media (max-width: 850px) {
+    #mobile-controls { display: flex; }
+    footer { display: none; }
+    header h1 { font-size: 20px; }
+}
