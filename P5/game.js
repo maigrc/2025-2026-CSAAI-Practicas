@@ -138,7 +138,7 @@ function update() {
 
     if (keys.Space) {
         let d = Math.hypot(ball.x - player.x, ball.y - player.y);
-        if (d < 50) { ball.vx = Math.cos(player.angle) * 17; ball.vy = Math.sin(player.angle) * 17; }
+        if (d < 50) { ball.vx = Math.cos(player.angle) * 12; ball.vy = Math.sin(player.angle) * 12; }
     }
 
     ball.x += ball.vx; ball.y += ball.vy;
