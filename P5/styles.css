@@ -1,4 +1,7 @@
+* { -webkit-tap-highlight-color: transparent; user-select: none; touch-action: manipulation; }
+
 body { margin: 0; background-color: #121212; color: white; font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; overflow: hidden; touch-action: none; }
+
 #game-wrapper { text-align: center; width: 100%; max-width: 800px; padding: 10px; box-sizing: border-box; }
 header h1 { margin: 0; font-size: 28px; }
 header p { color: #888; margin: 5px 0 15px 0; font-size: 14px; }

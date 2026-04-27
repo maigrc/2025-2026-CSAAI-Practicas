@@ -34,10 +34,10 @@ const GOAL_BOTTOM = 320;
 let ball = { x: 400, y: 250, vx: 0, vy: 0, r: 10 };
 let player = { x: 150, y: 250, r: 18, color: '#1e4b8a', angle: 0 };
 let rivals = [
-    { x: 600, y: 180, r: 18, color: '#7a1a15', speed: 2.1 },
-    { x: 600, y: 320, r: 18, color: '#7a1a15', speed: 2.1 }
+    { x: 600, y: 180, r: 18, color: '#7a1a15', speed: 1.5 },
+    { x: 600, y: 320, r: 18, color: '#7a1a15', speed: 1.5 }
 ];
-let ally = { x: 250, y: 350, r: 18, color: '#3a78a1', speed: 1.8 };
+let ally = { x: 250, y: 350, r: 18, color: '#3a78a1', speed: 1.2 };
 
 const allPlayers = [player, ...rivals, ally];
 const keys = {};
@@ -111,10 +111,10 @@ function update() {
     if (state !== 'PLAYING') return;
 
     // Controles movimiento
-    if (keys['ArrowUp']) player.y -= 4.5;
-    if (keys['ArrowDown']) player.y += 4.5;
-    if (keys['ArrowLeft']) player.x -= 4.5;
-    if (keys['ArrowRight']) player.x += 4.5;
+    if (keys['ArrowUp']) player.y -= 3.5;
+    if (keys['ArrowDown']) player.y += 3.5;
+    if (keys['ArrowLeft']) player.x -= 3.5;
+    if (keys['ArrowRight']) player.x += 3.5;
     if (keys['KeyA']) player.angle -= 0.12;
     if (keys['KeyD']) player.angle += 0.12;
 
